@@ -7,7 +7,7 @@ import { soundManager } from "./fireworks/SoundManager";
 export default function App() {
   const [isNewYear, setIsNewYear] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [audioEnabled, setAudioEnabled] = useState(true);
+  const [] = useState(true);
   const [theme, setTheme] = useState<'default' | 'neon' | 'pastel' | 'monochrome'>('default');
   const target = useMemo(() => new Date(Date.now() - 1000), []); // Set target to 1 second ago for testing
 
@@ -80,28 +80,6 @@ export default function App() {
             ))}
           </div>
         </div>
-      </div>
-
-      {/* Instructions */}
-      <div className="fixed top-24 left-6 text-white/70 text-sm max-w-xs z-10 backdrop-blur-lg bg-black/30 p-4 rounded-xl border border-white/10">
-        <h3 className="font-bold text-white mb-2">🎆 How to Use</h3>
-        <ul className="space-y-1">
-          <li>✨ <strong>Click anywhere</strong> to launch fireworks</li>
-          <li>✨ <strong>Select firework types</strong> from bottom panel</li>
-          <li>✨ <strong>Use buttons</strong> for quick actions</li>
-          <li>✨ <strong>Toggle settings</strong> in top-right</li>
-          <li>✨ <strong>Sound:</strong> {audioEnabled ? "ON 🔊" : "OFF 🔇"}
-            <button
-              onClick={() => {
-                const enabled = soundManager.toggle();
-                setAudioEnabled(enabled);
-              }}
-              className="ml-2 text-white/70 hover:text-white"
-            >
-              {audioEnabled ? "🔇" : "🔊"}
-            </button>
-          </li>
-        </ul>
       </div>
 
       {/* Celebration Overlay */}
